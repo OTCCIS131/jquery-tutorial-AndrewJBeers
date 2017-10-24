@@ -5,18 +5,23 @@ $(function () {
         data: {
             ppt: 60.50,
             attendees: [
+
                 { name: '', email: '' }
             ]
         },
         methods: {
             removeAttendee(attendee) {
+                
                 let index = this.attendees.indexOf(attendee)
                 this.attendees.splice(index, 1)
+                alert(index)
             },
-            addAttendee() {
-                this.attendees.push({
+            addAttendee(attendee) {
+                 this.attendees.push({
                     name: '', email: ''
+                
                 })
+                
             }
         },
         computed: {
@@ -29,7 +34,7 @@ $(function () {
         },
         filters: {
             currency(floatVar) {
-                return `$${floatVar.tofixed(2)}`
+                return `$${floatVar.toFixed(2)}`
             }
         }
     });
